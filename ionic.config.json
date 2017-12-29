@@ -1,0 +1,8 @@
+{
+  "name": "yourjiujitsujournal",
+  "app_id": "dab5e5e5",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
