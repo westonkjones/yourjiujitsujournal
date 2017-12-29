@@ -4,16 +4,17 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { NewLogPage } from '../pages/new-log/new-log';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { LocalProvider } from '../providers/local/local';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    NewLogPage
   ],
   imports: [
     BrowserModule,
@@ -23,12 +24,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    NewLogPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LocalProvider
   ]
 })
 export class AppModule {}

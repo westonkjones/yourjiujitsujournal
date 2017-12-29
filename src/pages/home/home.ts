@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
+
+import { NewLogPage } from '../new-log/new-log';
 
 @Component({
   selector: 'page-home',
@@ -7,8 +9,17 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public modalCtrl: ModalController) {
 
   }
 
+  public onNewLogClick(): void {
+    let newLogModal = this.modalCtrl.create(NewLogPage);
+
+    newLogModal.onDidDismiss(() => {
+
+    });
+
+    newLogModal.present();
+  }
 }
