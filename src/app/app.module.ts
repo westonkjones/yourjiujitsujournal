@@ -8,7 +8,10 @@ import { NewLogPage } from '../pages/new-log/new-log';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { LocalProvider } from '../providers/local/local';
+import { IonicStorageModule } from '@ionic/storage';
+import { SQLitePorter } from '@ionic-native/sqlite-porter';
+import { SQLite } from '@ionic-native/sqlite';
+import { InstructorProvider } from '../providers/instructor/instructor-provider';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,7 @@ import { LocalProvider } from '../providers/local/local';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -30,7 +34,9 @@ import { LocalProvider } from '../providers/local/local';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LocalProvider
+    InstructorProvider,
+    SQLitePorter,
+    SQLite
   ]
 })
 export class AppModule {}
