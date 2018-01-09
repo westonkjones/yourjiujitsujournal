@@ -1,4 +1,4 @@
-import { Belt } from '../belt';
+import { Belt } from './belt';
 
 export class Instructor {
     constructor(private firstName: string, private lastName: string, private belt: Belt) {

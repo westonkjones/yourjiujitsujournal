@@ -8,7 +8,6 @@ import 'rxjs/add/operator/map';
 import { BehaviorSubject } from 'rxjs/Rx';
 
 import { Instructor } from '../instructor';
-import { Belt } from '../belt';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -23,9 +22,20 @@ export class InstructorProvider {
         location: 'default'
       }).then((db: SQLiteObject) => {
         this.database = db;
+        
+        this.databaseInit();
+
         this.databaseStateSubject.next(true);
       });
     });
+  }
+
+  private databaseInit(): void {
+    this.createInstructorTable();
+  }
+
+  private createInstructorTable(): void {
+    this.database.executeSql("CREATE TABLE IF NOT EXISTS instructor(id integer primary key autoincrement NOT NULL, firstName Text NOT NULL, lastName Text NOT NULL, belt TEXT NOT NULL)", []);
   }
   
   public addInstructor(instructor: Instructor): Promise<Instructor> {

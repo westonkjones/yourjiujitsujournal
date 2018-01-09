@@ -12,4 +12,12 @@
     </ion-toolbar>
 </ion-header>
 <ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Instructor</ion-label>
+      <ion-select [(ngModel)]="entry">
+        <ion-option *ngFor="let instructor of instructors">{{instructor.getName()}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
 </ion-content>
